@@ -1,6 +1,6 @@
 # CV2Site Static Website (code)
 
-This folder contains a data-driven static site generated from a LaTeX CV.
+This folder contains a data-driven static site generated from a LaTeX CV. If you find my work useful for you, please keep the "Template Source github link in the footer". 
 
 ## Collaboration-first workflow
 
