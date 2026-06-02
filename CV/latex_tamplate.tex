@@ -1,0 +1,272 @@
+\documentclass[a4paper]{article}
+%\documentclass[a4paper,12pt]{article}
+\usepackage[ngerman, swedish, english]{babel}
+\usepackage[margin = 1.5cm]{geometry}
+\usepackage[utf8x]{inputenc}
+%\usepackage[applemac]{inputenc} %MICHAEL - irgendwas wirst du da \UTF{008A}ndern m\UTF{009F}ssen, das ist f\UTF{009F}r den mac!!
+%\usepackage[T1]{fontenc}
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage{graphicx}
+%\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{marvosym}
+\usepackage{xparse}
+\usepackage{titlesec} % custom \section
+%\usepackage{tikz}
+%\usepackage{mathtools}
+%\usepackage{epstopdf}
+%\usepackage{comment}
+%\usepackage{url}
+%\usepackage{paralist}
+%\usepackage{float}
+%\usepackage{booktabs}
+%\usepackage{lscape}
+%\usepackage{rotating}
+%\usepackage{esvect}
+%\usepackage{xcolor}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{array}
+%\usepackage{hyperref}
+%\usepackage{listings}
+%\usepackage[section]{placeins}
+%\usepackage{float}
+%\usepackage{enumerate}
+%\usepackage{savesym}
+%\savesymbol{openbox}
+%\usepackage{amsthm}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[english]{babel}	% last is active
+\usepackage{tikz}
+\tikzset{pics/home/.style={
+  code={
+%
+\fill [x=1ex/6, y=1ex/6]
+  (-1, 3) -- (-1, 0) -- (-5, 0) -- (-5, 4) -- (0,4+5*tan 35) --
+  ( 5, 4) -- ( 5, 0) -- ( 1, 0) -- ( 1, 3) -- cycle
+  (-6, 4) -- (0, 4+6*tan 35) --
+  ( 6, 4) -- (6+sin 35, 4+cos 35) --
+  ( 5, 4+1*tan 35+sec 35) --
+  ( 5, 4+5*tan 35+sec 35) --
+  ( 3, 4+5*tan 35+sec 35) --
+  ( 3, 4+3*tan 35+sec 35) --
+  ( 0, 4+6*tan 35+sec 35) --
+  (-6-sin 35, 4+cos 35) -- cycle;
+%
+  }
+}}
+
+\raggedright
+\pagestyle{empty}
+
+% Tweak section
+% \titleformat{<command>}[<shape>]{<format>}                  {<label>}{<sep>}{<before>}{<after>}
+\titleformat{\section}{\large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{3pt}{3pt}
+
+
+\newcommand{\Star}{\raisebox{0.2ex}{\bigstar}}
+\newcommand{\headerinfo}[5]{%
+	\begin{center}
+		{\LARGE \scshape{#1}}\\[1mm]
+		\begin{tabular}{r l}
+			\multicolumn{2} {c} {\tikz\pic{home}; #2} \\
+			\Letter \hspace{0.2ex} #4 & \hspace{0.2mm}\Telefon \hspace{0.2ex} #3
+		\end{tabular}
+	\end{center}
+	\vspace*{-8pt}%
+}
+
+
+\newenvironment{achievements}%
+	{%
+		\begin{list}{$\cdot$}{\topsep 0pt \itemsep 2pt \parsep 0pt \leftmargin 1em}%
+		\linespread{1.05} \selectfont % for spreading out all lines
+	}%
+{\end{list}\vspace*{4pt}}
+
+
+
+
+\DeclareDocumentCommand\timeunit{ m m m m g }{%
+	{%
+		\begin{tabular}{l@{\hspace{5mm}}|p{30mm}}
+			\multicolumn{1}{l}{\textbf{#1 $\circ$ }#2}&\multicolumn{1}{m{30mm}}{\hspace{-5mm}\textsc{#3}}\\
+			\parbox{.825\textwidth}{\begin{achievements}#4\end{achievements} \vspace*{-4pt}} &  \IfNoValueF{#5}{#5}%
+		\end{tabular} \vspace{4pt}%
+	}%
+}
+
+
+
+%\DeclareDocumentCommand\shorttimeunit{ m m m g}{%
+%	{%
+%		\begin{tabular}{l@{\hspace{5mm}}rp{30mm}}
+%			\multicolumn{1}{l}{\textbf{#1 $\circ$ }#2}&\multicolumn{1}{m{30mm}}{\quad \textsc{#3}}\\
+%		\parbox{.825\textwidth}{\vspace*{-4pt}} &  \IfNoValueF{#4}{#4}%
+%		\end{tabular} \vspace{4pt}%
+%	}%
+%}
+
+\newenvironment{achievements2}%
+	{%
+		\begin{list}{}{\topsep 0pt \itemsep 2pt \parsep 0pt \leftmargin 1em}%
+		\linespread{1.05} \selectfont % for spreading out all lines
+	}%
+{\end{list}}
+
+
+
+\DeclareDocumentCommand\shorttimeunit{ m m m g g }{%
+	{%
+		\begin{tabular}{l@{\hspace{5mm}}p{30mm}}
+			\multicolumn{1}{l}{\textbf{#1 $\circ$ }#2}&\multicolumn{1}{m{30mm}}{\hspace{-5mm}\textsc{#3}}\\
+			\parbox{.825\textwidth}{\begin{achievements2}#4\end{achievements2} \vspace*{-14pt}} &  \IfNoValueF{#5}{#5}%
+			%\parbox{1.825\textwidth}{\begin{achievements2}#4\end{achievements2} \vspace*{-14pt}} &  \IfNoValueF{#5}{#5}
+		\end{tabular}\vspace{-5pt}%
+	}%
+}
+
+\newcommand{\simpleunit}[2]{%
+	\textbf{#1}\begin{achievements}#2\end{achievements}%
+}
+\def\Cpp{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}}
+\def\Csharp{{C\nolinebreak[4]\hspace{-.04em}\raisebox{.4ex}{\hspace{0.2mm}\footnotesize\#}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%  END OF COMMANDS, BEGIN OF DOCUMENT %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\headerinfo{Your Name}
+{Your address, City, Country}
+{Your phone number}
+{your.email@university.edu}
+
+
+\section{Work Experience}
+	\timeunit{Position}{Company}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+\section{Education}
+	\timeunit{Degree}{University}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+\section{Related Coursework}
+	\timeunit{Course}{Institution}{}{
+		\item{\textbf{Details:} Some description}
+	}
+
+\section{Professional Appointments}
+	\timeunit{Company/Institution}{}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+	\timeunit{Reviewing Experience}{}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+	\timeunit{Conference and Seminar Organization}{}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+	\timeunit{Recruitment Committees}{}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+	\timeunit{Session Chairing and Panel Moderation}{}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+\section{Research and Summer Schools}
+	\shorttimeunit{Institution}{location}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+
+\section{Workshops and Conferences}
+	\timeunit{Company/Institution}{Position}{dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+\section{Trainings}
+	\shorttimeunit{Company/Institution}{Position}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+\vspace{-11pt}
+
+\section{Professional Associations}
+	\timeunit{Company/Institution}{Position}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+\section{Public Outreach}
+	\timeunit{Event}{Organization}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+\section{Scholarships and Grants}
+\subsection*{Research and Study Grants}
+
+	\timeunit{Name}{Company/Institution}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+\subsection*{Travel Scholarships}
+	\timeunit{Name}{Company/Institution}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+\section{Publications, Talks and Posters}
+\subsection*{Invited Talks and Panels}
+	\timeunit{Company/Institution}{Position}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+\subsection*{Peer Reviewed Publications}
+	\timeunit{Authors}{Affiliation}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+\subsection*{Others}
+	\timeunit{Authors}{Affiliation}{Dates}{
+		\item{\textbf{Details:} Some description}
+	}
+
+\section{Computer Skills}
+	\simpleunit{Compiled languages}{
+		\item{\textbf{Basic:} }
+	}
+	\simpleunit{Scientific software}{
+		\item{\textbf{Intermediate} }
+		\item{\textbf{Basic:} }
+	}
+	\simpleunit{Markup languages}{
+		\item{\textbf{Advanced:} \LaTeX}
+		\item{\textbf{Basic:} }
+	}
+
+\section{Misc}
+	\simpleunit{Languages}{
+		\item{\textbf{Arabic:} }
+		\item{\textbf{English:} }
+		\item{\textbf{French:} }
+		\item{\textbf{German:} }
+		\item{\textbf{Polish:} }
+		\item{\textbf{Russian:} }
+		\item{\textbf{Swedish:} }
+		\item{\textbf{Spanish:} }
+	}
+
+	\simpleunit{References \vspace{10pt}}{
+		\item{
+			\textbf{Name, Title}\\
+			Position, \\
+			Company/Institution\\
+			\Letter \; email@example.com\\
+			\Telefon \; Phone Number
+		}\vspace{10pt}
+	}
+\end{document}

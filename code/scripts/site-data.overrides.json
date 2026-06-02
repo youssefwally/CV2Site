@@ -1,0 +1,20 @@
+{
+  "publicationMetadata": {},
+  "venueAliases": {},
+  "authorNameMap": {},
+  "organizationLocationHints": {},
+  "researchFallbackItems": [
+    {
+      "title": "Selected Work",
+      "description": "Highlight the projects, publications, and outcomes you want visitors to notice first."
+    },
+    {
+      "title": "Research and Practice",
+      "description": "Summarize the domains, methods, or technologies where you have demonstrated impact."
+    },
+    {
+      "title": "Community Contributions",
+      "description": "Include talks, mentoring, reviewing, open-source work, or other public contributions."
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+cff-version: 1.0.0
+title: "Latex CV Template to Personal Website Generator"
+message: "If you use this project, please cite it as below."
+type: software
+
+authors:
+  - family-names: Wally
+    given-names: Youssef
+
+version: "1.0.0"
+license: MIT
+repository-code: "https://github.com/youssefwally/CV2Site"
+url: "https://github.com/youssefwally/CV2Site"
+date-released: "2026-06-02"
+abstract: >
+  Latex CV Template to Personal Website Generator is a project that converts LaTeX CVs to personal websites.
+
+preferred-citation:
+  type: software
+  title: "Latex CV Template to Personal Website Generator"
+  authors:
+    - family-names: Wally
+      given-names: Youssef
+  year: 2026
+  version: "1.0.0"
+  url: "https://github.com/youssefwally/CV2Site"
