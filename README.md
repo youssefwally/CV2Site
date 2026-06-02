@@ -124,6 +124,13 @@ npx serve code
 
 Open the local URL printed by the command.
 
+## To deploy on GitHub Pages:
+
+1. Create a new repo: [your github username].github.io for a user page
+2. On your repo go to settings->Pages then set choose "Source" as "Github Actions"
+3. On your repo go to Actions->Deploy GitHub Pages->run workflow->run
+4. Your website will be live at [your github username].github.io
+
 ## Security note
 
 Everything under `code/` is public when deployed. Do not place private documents,
